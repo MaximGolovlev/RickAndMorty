@@ -45,7 +45,6 @@ jobs:
     - name: Run Tests
       run: |
         xcodebuild test \
-          -workspace RickAndMorty.xcworkspace \
           -scheme RickAndMorty \
           -destination 'platform=iOS Simulator,name=iPhone 16' \
           -enableCodeCoverage YES \
