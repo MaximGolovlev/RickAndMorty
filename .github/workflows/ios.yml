@@ -37,8 +37,12 @@ jobs:
     #   run: sudo xcode-select -switch /Applications/Xcode.app/Contents/Developer
       
     - name: Build the project
-      run: xcodebuild build -project RickAndMorty.xcodeproj -scheme RickAndMorty -destination 'platform=iOS Simulator,name=iPhone 16,OS=18.2'
-      
+      run: |
+        xcodebuild build \
+          -project RickAndMorty.xcodeproj \
+          -scheme RickAndMorty \
+          -destination 'platform=iOS Simulator,name=iPhone 16,OS=18.2' \
+          -quiet
     # - name: Run Tests
     #   run: xcodebuild test -project RickAndMorty.xcodeproj -scheme RickAndMorty -destination 'platform=iOS Simulator,name=iPhone 16'
 
@@ -47,10 +51,8 @@ jobs:
         xcodebuild test \
           -project RickAndMorty.xcodeproj \
           -scheme RickAndMorty \
-          -only-testing:RickAndMortyTests \
           -destination 'platform=iOS Simulator,name=iPhone 16,OS=18.2' \
-          -enableCodeCoverage YES \
-          -quiet \
+          -quiet
           
       # -only-testing:RickAndMorty/RickAndMortyTests/checkCharacters
       # -parallel-testing-enabled YES \
