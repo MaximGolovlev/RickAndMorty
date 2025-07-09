@@ -41,7 +41,7 @@ jobs:
     - name: Build and Archive
       run: |
         xcodebuild archive \
-          -workspace RickAndMorty.xcworkspace \
+          -project RickAndMorty.xcodeproj \
           -scheme RickAndMorty \
           -configuration Release \
           -archivePath $PWD/build/RickAndMorty.xcarchive \
