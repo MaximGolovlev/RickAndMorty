@@ -10,9 +10,6 @@ on:
 jobs:
   build-and-test:
     runs-on: macos-latest
-
-    env:
-      DEVELOPER_DIR: /Applications/Xcode_16.app/Contents/Developer
     
     steps:
     - name: Checkout repository
@@ -20,6 +17,9 @@ jobs:
 
     - name: Convert project format
       run: xcrun xcodebuild -project RickAndMorty.xcodeproj -updateToCheckout
+
+    - name: Print available Xcode versions
+      run: ls /Applications | grep Xcode
       
     - name: Show Xcode version
       run: xcodebuild -version
