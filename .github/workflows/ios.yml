@@ -14,9 +14,9 @@ jobs:
     steps:
     - name: Checkout repository
       uses: actions/checkout@v4
-      
-    - name: Select latest Xcode
-      run: sudo xcode-select -switch /Applications/Xcode.app/Contents/Developer
+
+    - name: Convert project format
+      run: xcrun xcodebuild -project RickAndMorty.xcodeproj -updateToCheckout
       
     - name: Show Xcode version
       run: xcodebuild -version
