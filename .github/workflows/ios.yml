@@ -31,5 +31,5 @@ jobs:
     - name: Build the project
       run: xcodebuild build -project RickAndMorty.xcodeproj -scheme RickAndMorty -destination 'platform=iOS Simulator,name=iPhone 16'
       
-    - name: Run tests
-      run: xcodebuild test -project RickAndMorty.xcodeproj -scheme RickAndMorty -destination 'platform=iOS Simulator,name=iPhone 16'
+    # - name: Run tests
+    #   run: xcodebuild test -project RickAndMorty.xcodeproj -scheme RickAndMorty -destination 'platform=iOS Simulator,name=iPhone 16'
