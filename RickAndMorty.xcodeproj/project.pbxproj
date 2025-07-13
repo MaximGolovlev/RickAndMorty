@@ -6,6 +6,12 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		B53917192E1E944B0000A187 /* ExportOptions.plist in Resources */ = {isa = PBXBuildFile; fileRef = B53917182E1E944B0000A187 /* ExportOptions.plist */; };
+		B5E566BA2E2394690024305A /* NetworkModel in Frameworks */ = {isa = PBXBuildFile; productRef = B5E566B92E2394690024305A /* NetworkModel */; };
+		B5F410292E238D5000899FF6 /* NetworkService in Frameworks */ = {isa = PBXBuildFile; productRef = B5F410282E238D5000899FF6 /* NetworkService */; };
+/* End PBXBuildFile section */
+
 /* Begin PBXContainerItemProxy section */
 		B59371132E1D3BE70017295E /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -23,7 +29,21 @@
 		};
 /* End PBXContainerItemProxy section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		B5F410212E23894D00899FF6 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
+		B53917182E1E944B0000A187 /* ExportOptions.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = ExportOptions.plist; sourceTree = "<group>"; };
 		B59371002E1D3BE50017295E /* RickAndMorty.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RickAndMorty.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B59371122E1D3BE70017295E /* RickAndMortyTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RickAndMortyTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		B593711C2E1D3BE70017295E /* RickAndMortyUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RickAndMortyUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -52,6 +72,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B5F410292E238D5000899FF6 /* NetworkService in Frameworks */,
+				B5E566BA2E2394690024305A /* NetworkModel in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -75,6 +97,7 @@
 		B59370F72E1D3BE50017295E = {
 			isa = PBXGroup;
 			children = (
+				B53917182E1E944B0000A187 /* ExportOptions.plist */,
 				B59371022E1D3BE50017295E /* RickAndMorty */,
 				B59371152E1D3BE70017295E /* RickAndMortyTests */,
 				B593711F2E1D3BE70017295E /* RickAndMortyUITests */,
@@ -102,6 +125,7 @@
 				B59370FC2E1D3BE50017295E /* Sources */,
 				B59370FD2E1D3BE50017295E /* Frameworks */,
 				B59370FE2E1D3BE50017295E /* Resources */,
+				B5F410212E23894D00899FF6 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -112,6 +136,8 @@
 			);
 			name = RickAndMorty;
 			packageProductDependencies = (
+				B5F410282E238D5000899FF6 /* NetworkService */,
+				B5E566B92E2394690024305A /* NetworkModel */,
 			);
 			productName = RickAndMorty;
 			productReference = B59371002E1D3BE50017295E /* RickAndMorty.app */;
@@ -195,6 +221,10 @@
 			);
 			mainGroup = B59370F72E1D3BE50017295E;
 			minimizedProjectReferenceProxies = 1;
+			packageReferences = (
+				B5F410272E238D5000899FF6 /* XCLocalSwiftPackageReference "../NetworkService" */,
+				B5E566B82E2394690024305A /* XCLocalSwiftPackageReference "../NetworkModel" */,
+			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = B59371012E1D3BE50017295E /* Products */;
 			projectDirPath = "";
@@ -212,6 +242,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B53917192E1E944B0000A187 /* ExportOptions.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -558,6 +589,28 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCLocalSwiftPackageReference section */
+		B5E566B82E2394690024305A /* XCLocalSwiftPackageReference "../NetworkModel" */ = {
+			isa = XCLocalSwiftPackageReference;
+			relativePath = ../NetworkModel;
+		};
+		B5F410272E238D5000899FF6 /* XCLocalSwiftPackageReference "../NetworkService" */ = {
+			isa = XCLocalSwiftPackageReference;
+			relativePath = ../NetworkService;
+		};
+/* End XCLocalSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		B5E566B92E2394690024305A /* NetworkModel */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = NetworkModel;
+		};
+		B5F410282E238D5000899FF6 /* NetworkService */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = NetworkService;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = B59370F82E1D3BE50017295E /* Project object */;
 }

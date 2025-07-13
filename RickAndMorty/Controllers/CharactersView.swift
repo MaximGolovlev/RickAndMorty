@@ -7,6 +7,8 @@
 
 import SwiftUI
 import SwiftData
+import NetworkService
+import NetworkModel
 
 struct CharactersView: View {
 
@@ -103,7 +105,7 @@ struct CharactersView: View {
 #Preview {
     let am = APIManager.shared
     let vm = CharactersView.ViewModel(apiManager: am)
-    return CharactersView(vm: vm)
+    CharactersView(vm: vm)
         .modelContainer(for: Item.self, inMemory: true)
 }
 

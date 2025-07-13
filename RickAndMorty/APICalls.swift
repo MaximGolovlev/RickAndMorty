@@ -5,6 +5,8 @@
 //  Created by Максим on 08.07.2025.
 //
 
+import NetworkService
+import NetworkModel
 
 extension APIManager {
     

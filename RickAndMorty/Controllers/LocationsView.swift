@@ -6,6 +6,8 @@
 //
 
 import SwiftUI
+import NetworkService
+import NetworkModel
 
 struct LocationsView: View {
     

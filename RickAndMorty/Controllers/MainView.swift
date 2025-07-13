@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import NetworkService
 
 struct MainView: View {
     var body: some View {
