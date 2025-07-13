@@ -1,0 +1,66 @@
+name: TestFlight Deployment
+
+on:
+  push:
+    tags:
+      - 'v*' # Запускать при создании тега вида v1.0.0
+  workflow_dispatch:
+
+jobs:
+  build-and-deploy:
+    runs-on: macOS-latest
+    
+    steps:
+    - uses: actions/checkout@v4
+    
+    # Установка Xcode
+    - name: Select Xcode
+      run: sudo xcode-select -s /Applications/Xcode.app
+    
+    # Установка fastlane (опционально)
+    # - name: Install fastlane
+    #   run: |
+    #     brew install fastlane
+        
+    # Настройка окружения
+    - name: Setup Environment
+      env:
+        APP_STORE_CONNECT_ISSUER_ID: ${{ secrets.APP_STORE_CONNECT_ISSUER_ID }}
+        APP_STORE_CONNECT_KEY_ID: ${{ secrets.APP_STORE_CONNECT_KEY_ID }}
+        APP_STORE_CONNECT_API_KEY: ${{ secrets.APP_STORE_CONNECT_API_KEY }}
+        MATCH_PASSWORD: ${{ secrets.MATCH_PASSWORD }}
+        TEAM_ID: ${{ secrets.APPLE_TEAM_ID }}
+      run: |
+        echo "$APP_STORE_CONNECT_API_KEY" > api_key.p8
+        
+    # Установка зависимостей (если используете CocoaPods)
+    # - name: Install Dependencies
+    #   run: pod install
+      
+    # Сборка и экспорт IPA
+    - name: Build and Archive
+      run: |
+        xcodebuild archive \
+          -project RickAndMorty.xcodeproj \
+          -scheme RickAndMorty \
+          -configuration Release \
+          -archivePath $PWD/build/RickAndMorty.xcarchive \
+          -allowProvisioningUpdates \
+          -destination generic/platform=iOS
+        
+    # Экспорт IPA
+    - name: Export IPA
+      run: |
+        xcodebuild -exportArchive \
+          -archivePath $PWD/build/RickAndMorty.xcarchive \
+          -exportOptionsPlist ExportOptions.plist \
+          -exportPath $PWD/build \
+          -allowProvisioningUpdates
+          
+    # Загрузка в TestFlight (через fastlane)
+    # - name: Upload to TestFlight
+    #   run: |
+    #     fastlane pilot upload \
+    #       --api_key_path api_key.p8 \
+    #       --ipa "build/YourProject.ipa" \
+    #       --skip_waiting_for_build_processing true
